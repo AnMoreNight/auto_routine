@@ -4,26 +4,26 @@ import { Button } from "@/components/ui/button";
 const actions = [
   {
     icon: Upload,
-    label: "Import Orders",
-    description: "Upload from Robot-in",
+    label: "注文取込",
+    description: "Robot-inからインポート",
     variant: "default" as const,
   },
   {
     icon: UserPlus,
-    label: "Assign Staff",
-    description: "Auto-assign today's orders",
+    label: "スタッフ割当",
+    description: "本日の注文を自動割当",
     variant: "secondary" as const,
   },
   {
     icon: MapPin,
-    label: "Generate Routes",
-    description: "Optimize all routes",
+    label: "ルート生成",
+    description: "全ルートを最適化",
     variant: "secondary" as const,
   },
   {
     icon: RefreshCw,
-    label: "Sync Status",
-    description: "Update purchase status",
+    label: "状態同期",
+    description: "購入状況を更新",
     variant: "secondary" as const,
   },
 ];
@@ -32,7 +32,7 @@ export function QuickActions() {
   return (
     <div className="rounded-xl border border-border bg-card card-shadow p-5">
       <h3 className="text-lg font-semibold text-foreground mb-4">
-        Quick Actions
+        クイックアクション
       </h3>
       <div className="grid grid-cols-2 gap-3">
         {actions.map((action, index) => (

@@ -28,55 +28,55 @@ interface StaffRoute {
 const mockRoutes: StaffRoute[] = [
   {
     id: "1",
-    staffName: "Tanaka Hiroshi",
-    staffAvatar: "T",
+    staffName: "田中 宏",
+    staffAvatar: "田",
     status: "in-progress",
     totalStops: 4,
     completedStops: 2,
-    estimatedDuration: "2h 45m",
+    estimatedDuration: "2時間45分",
     stops: [
-      { id: "1-1", storeName: "Electronics Plaza Shibuya", address: "Shibuya", orders: 3, estimatedTime: "10:30", status: "completed" },
-      { id: "1-2", storeName: "Muji Shinjuku", address: "Shinjuku", orders: 2, estimatedTime: "11:15", status: "completed" },
-      { id: "1-3", storeName: "Bic Camera Ikebukuro", address: "Ikebukuro", orders: 4, estimatedTime: "12:30", status: "current" },
-      { id: "1-4", storeName: "Uniqlo Ginza", address: "Ginza", orders: 3, estimatedTime: "14:00", status: "pending" },
+      { id: "1-1", storeName: "家電プラザ渋谷", address: "渋谷", orders: 3, estimatedTime: "10:30", status: "completed" },
+      { id: "1-2", storeName: "無印良品 新宿", address: "新宿", orders: 2, estimatedTime: "11:15", status: "completed" },
+      { id: "1-3", storeName: "ビックカメラ池袋", address: "池袋", orders: 4, estimatedTime: "12:30", status: "current" },
+      { id: "1-4", storeName: "ユニクロ銀座", address: "銀座", orders: 3, estimatedTime: "14:00", status: "pending" },
     ],
   },
   {
     id: "2",
-    staffName: "Suzuki Yuki",
-    staffAvatar: "S",
+    staffName: "鈴木 由紀",
+    staffAvatar: "鈴",
     status: "in-progress",
     totalStops: 3,
     completedStops: 1,
-    estimatedDuration: "2h 00m",
+    estimatedDuration: "2時間00分",
     stops: [
-      { id: "2-1", storeName: "Gourmet Market Ginza", address: "Ginza", orders: 5, estimatedTime: "10:00", status: "completed" },
-      { id: "2-2", storeName: "Specialty Foods Daikanyama", address: "Daikanyama", orders: 2, estimatedTime: "11:30", status: "current" },
-      { id: "2-3", storeName: "Itoya Stationery", address: "Ginza", orders: 1, estimatedTime: "12:30", status: "pending" },
+      { id: "2-1", storeName: "グルメマーケット銀座", address: "銀座", orders: 5, estimatedTime: "10:00", status: "completed" },
+      { id: "2-2", storeName: "特選食品 代官山", address: "代官山", orders: 2, estimatedTime: "11:30", status: "current" },
+      { id: "2-3", storeName: "伊東屋", address: "銀座", orders: 1, estimatedTime: "12:30", status: "pending" },
     ],
   },
   {
     id: "3",
-    staffName: "Yamamoto Ken",
-    staffAvatar: "Y",
+    staffName: "山本 健",
+    staffAvatar: "山",
     status: "not-started",
     totalStops: 5,
     completedStops: 0,
-    estimatedDuration: "3h 15m",
+    estimatedDuration: "3時間15分",
     stops: [
-      { id: "3-1", storeName: "Tech Hub Akihabara", address: "Akihabara", orders: 6, estimatedTime: "10:00", status: "pending" },
-      { id: "3-2", storeName: "Electronics Plaza Akihabara", address: "Akihabara", orders: 3, estimatedTime: "10:45", status: "pending" },
-      { id: "3-3", storeName: "Camera Store Shinjuku", address: "Shinjuku", orders: 2, estimatedTime: "12:00", status: "pending" },
-      { id: "3-4", storeName: "Audio Shop Shibuya", address: "Shibuya", orders: 2, estimatedTime: "13:15", status: "pending" },
-      { id: "3-5", storeName: "Home Goods Meguro", address: "Meguro", orders: 2, estimatedTime: "14:30", status: "pending" },
+      { id: "3-1", storeName: "テックハブ秋葉原", address: "秋葉原", orders: 6, estimatedTime: "10:00", status: "pending" },
+      { id: "3-2", storeName: "家電プラザ秋葉原", address: "秋葉原", orders: 3, estimatedTime: "10:45", status: "pending" },
+      { id: "3-3", storeName: "カメラ店 新宿", address: "新宿", orders: 2, estimatedTime: "12:00", status: "pending" },
+      { id: "3-4", storeName: "オーディオショップ渋谷", address: "渋谷", orders: 2, estimatedTime: "13:15", status: "pending" },
+      { id: "3-5", storeName: "ホームグッズ目黒", address: "目黒", orders: 2, estimatedTime: "14:30", status: "pending" },
     ],
   },
 ];
 
 const routeStatusConfig = {
-  "not-started": { label: "Not Started", className: "bg-muted text-muted-foreground" },
-  "in-progress": { label: "In Progress", className: "bg-primary/20 text-primary" },
-  completed: { label: "Completed", className: "bg-success/20 text-success" },
+  "not-started": { label: "未開始", className: "bg-muted text-muted-foreground" },
+  "in-progress": { label: "進行中", className: "bg-primary/20 text-primary" },
+  completed: { label: "完了", className: "bg-success/20 text-success" },
 };
 
 const stopStatusConfig = {
@@ -91,23 +91,23 @@ export default function Routes() {
   const activeRoute = mockRoutes.find((r) => r.id === selectedRoute);
 
   return (
-    <MainLayout title="Route Planning" subtitle="Optimize and track staff routes">
-      {/* Actions */}
+    <MainLayout title="ルート計画" subtitle="スタッフルートの最適化と追跡">
+      {/* アクション */}
       <div className="flex gap-3 mb-6">
         <Button className="gap-2">
           <RefreshCw className="h-4 w-4" />
-          Regenerate All Routes
+          全ルート再生成
         </Button>
         <Button variant="secondary" className="gap-2">
           <Play className="h-4 w-4" />
-          Start All Routes
+          全ルート開始
         </Button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Route List */}
+        {/* ルートリスト */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-foreground">Today's Routes</h3>
+          <h3 className="text-lg font-semibold text-foreground">本日のルート</h3>
           {mockRoutes.map((route, index) => (
             <button
               key={route.id}
@@ -136,24 +136,24 @@ export default function Routes() {
               <div className="grid grid-cols-3 gap-2 text-center">
                 <div className="p-2 rounded bg-muted/30">
                   <p className="text-lg font-bold text-foreground">{route.totalStops}</p>
-                  <p className="text-xs text-muted-foreground">Stops</p>
+                  <p className="text-xs text-muted-foreground">店舗</p>
                 </div>
                 <div className="p-2 rounded bg-success/10">
                   <p className="text-lg font-bold text-success">{route.completedStops}</p>
-                  <p className="text-xs text-muted-foreground">Done</p>
+                  <p className="text-xs text-muted-foreground">完了</p>
                 </div>
                 <div className="p-2 rounded bg-muted/30">
                   <p className="text-lg font-bold text-foreground">{route.estimatedDuration}</p>
-                  <p className="text-xs text-muted-foreground">Est.</p>
+                  <p className="text-xs text-muted-foreground">予定</p>
                 </div>
               </div>
             </button>
           ))}
         </div>
 
-        {/* Route Details & Map Placeholder */}
+        {/* ルート詳細とマッププレースホルダー */}
         <div className="lg:col-span-2 space-y-4">
-          {/* Map Placeholder */}
+          {/* マッププレースホルダー */}
           <div className="rounded-xl border border-border bg-card card-shadow overflow-hidden">
             <div className="h-[300px] bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center relative">
               <div className="absolute inset-0 opacity-10">
@@ -165,19 +165,19 @@ export default function Routes() {
               </div>
               <div className="text-center z-10">
                 <Navigation className="h-12 w-12 text-primary mx-auto mb-3 opacity-50" />
-                <p className="text-lg font-medium text-foreground">Map View</p>
+                <p className="text-lg font-medium text-foreground">マップビュー</p>
                 <p className="text-sm text-muted-foreground">
-                  Connect to mapping service for live routes
+                  地図サービスに接続してライブルートを表示
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Stop List */}
+          {/* 停止リスト */}
           {activeRoute && (
             <div className="rounded-xl border border-border bg-card card-shadow p-5">
               <h3 className="text-lg font-semibold text-foreground mb-4">
-                Route for {activeRoute.staffName}
+                {activeRoute.staffName}のルート
               </h3>
               <div className="space-y-3">
                 {activeRoute.stops.map((stop, index) => (
@@ -189,7 +189,7 @@ export default function Routes() {
                     )}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    {/* Step Number */}
+                    {/* ステップ番号 */}
                     <div
                       className={cn(
                         "flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold shrink-0",
@@ -203,7 +203,7 @@ export default function Routes() {
                       {index + 1}
                     </div>
 
-                    {/* Store Info */}
+                    {/* 店舗情報 */}
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-foreground">{stop.storeName}</p>
                       <div className="flex items-center gap-3 text-sm text-muted-foreground mt-0.5">
@@ -218,10 +218,10 @@ export default function Routes() {
                       </div>
                     </div>
 
-                    {/* Orders */}
+                    {/* 注文数 */}
                     <div className="text-right shrink-0">
                       <p className="text-lg font-bold text-foreground">{stop.orders}</p>
-                      <p className="text-xs text-muted-foreground">orders</p>
+                      <p className="text-xs text-muted-foreground">件</p>
                     </div>
                   </div>
                 ))}

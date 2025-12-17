@@ -18,101 +18,101 @@ interface SettingSection {
 
 const settingsSections: SettingSection[] = [
   {
-    title: "Order Cutoff",
-    description: "Configure daily order processing times",
+    title: "注文締切",
+    description: "日次の注文処理時間を設定",
     icon: Clock,
     settings: [
       {
-        label: "Daily Cutoff Time",
-        description: "Orders after this time go to next business day",
+        label: "日次締切時間",
+        description: "この時間以降の注文は翌営業日に処理",
         value: "13:10",
         type: "text",
       },
       {
-        label: "Weekend Processing",
-        description: "Allow order processing on weekends",
+        label: "週末処理",
+        description: "週末の注文処理を許可",
         value: false,
         type: "toggle",
       },
       {
-        label: "Holiday Override",
-        description: "Enable processing during busy periods",
+        label: "祝日オーバーライド",
+        description: "繁忙期の処理を有効化",
         value: true,
         type: "toggle",
       },
     ],
   },
   {
-    title: "Staff Defaults",
-    description: "Default settings for staff assignments",
+    title: "スタッフ設定",
+    description: "スタッフ割当のデフォルト設定",
     icon: Users,
     settings: [
       {
-        label: "Default Start Location",
-        description: "Where staff routes begin",
-        value: "Office (Roppongi)",
+        label: "デフォルト出発地点",
+        description: "ルートの開始地点",
+        value: "オフィス（六本木）",
         type: "text",
       },
       {
-        label: "Max Orders per Staff",
-        description: "Maximum orders assigned to one person",
+        label: "スタッフあたり最大注文数",
+        description: "1人に割り当てる最大注文数",
         value: "20",
         type: "text",
       },
       {
-        label: "Auto-Assignment",
-        description: "Automatically assign orders to available staff",
+        label: "自動割当",
+        description: "空きスタッフに自動で注文を割当",
         value: true,
         type: "toggle",
       },
     ],
   },
   {
-    title: "Route Optimization",
-    description: "Configure route generation preferences",
+    title: "ルート最適化",
+    description: "ルート生成の設定",
     icon: MapPin,
     settings: [
       {
-        label: "Optimization Priority",
-        description: "How routes are optimized",
-        value: "Speed",
+        label: "最適化優先度",
+        description: "ルート最適化の方針",
+        value: "速度優先",
         type: "select",
-        options: ["Speed", "Distance", "Cost", "Balanced"],
+        options: ["速度優先", "距離優先", "コスト優先", "バランス"],
       },
       {
-        label: "Max Route Duration",
-        description: "Maximum time for a single route",
-        value: "4 hours",
+        label: "最大ルート時間",
+        description: "1ルートの最大時間",
+        value: "4時間",
         type: "text",
       },
       {
-        label: "Include Return Trip",
-        description: "Calculate time to return to start",
+        label: "復路を含む",
+        description: "出発地点への帰還時間を計算",
         value: true,
         type: "toggle",
       },
     ],
   },
   {
-    title: "Notifications",
-    description: "Configure alerts and notifications",
+    title: "通知",
+    description: "アラートと通知の設定",
     icon: Bell,
     settings: [
       {
-        label: "Cutoff Warning",
-        description: "Alert before daily cutoff time",
+        label: "締切前警告",
+        description: "日次締切前にアラート",
         value: true,
         type: "toggle",
       },
       {
-        label: "Order Failure Alerts",
-        description: "Notify when purchases fail",
+        label: "注文失敗アラート",
+        description: "購入失敗時に通知",
         value: true,
         type: "toggle",
       },
       {
-        label: "Route Completion",
-        description: "Notify when staff complete routes",
+        label: "ルート完了通知",
+        description: "スタッフがルートを完了したら通知",
         value: false,
         type: "toggle",
       },
@@ -122,7 +122,7 @@ const settingsSections: SettingSection[] = [
 
 export default function Settings() {
   return (
-    <MainLayout title="Settings" subtitle="Configure system preferences">
+    <MainLayout title="設定" subtitle="システム設定の構成">
       <div className="max-w-4xl space-y-6">
         {settingsSections.map((section, sectionIndex) => (
           <div
@@ -130,7 +130,7 @@ export default function Settings() {
             className="rounded-xl border border-border bg-card card-shadow overflow-hidden animate-slide-up"
             style={{ animationDelay: `${sectionIndex * 50}ms` }}
           >
-            {/* Section Header */}
+            {/* セクションヘッダー */}
             <div className="flex items-center gap-4 p-5 border-b border-border bg-muted/20">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <section.icon className="h-5 w-5" />
@@ -141,7 +141,7 @@ export default function Settings() {
               </div>
             </div>
 
-            {/* Settings */}
+            {/* 設定項目 */}
             <div className="divide-y divide-border">
               {section.settings.map((setting) => (
                 <div
@@ -188,29 +188,29 @@ export default function Settings() {
           </div>
         ))}
 
-        {/* Data Management */}
+        {/* データ管理 */}
         <div className="rounded-xl border border-border bg-card card-shadow p-5">
           <div className="flex items-center gap-4 mb-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
               <Database className="h-5 w-5" />
             </div>
             <div>
-              <h3 className="font-semibold text-foreground">Data Management</h3>
-              <p className="text-sm text-muted-foreground">Import, export, and manage data</p>
+              <h3 className="font-semibold text-foreground">データ管理</h3>
+              <p className="text-sm text-muted-foreground">データのインポート、エクスポート、管理</p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <Button variant="outline">Import Stores</Button>
-            <Button variant="outline">Export Orders</Button>
-            <Button variant="outline">Backup Data</Button>
+            <Button variant="outline">店舗インポート</Button>
+            <Button variant="outline">注文エクスポート</Button>
+            <Button variant="outline">データバックアップ</Button>
           </div>
         </div>
 
-        {/* Save Button */}
+        {/* 保存ボタン */}
         <div className="flex justify-end gap-3">
-          <Button variant="outline">Cancel</Button>
-          <Button>Save Changes</Button>
+          <Button variant="outline">キャンセル</Button>
+          <Button>変更を保存</Button>
         </div>
       </div>
     </MainLayout>

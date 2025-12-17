@@ -14,12 +14,12 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", path: "/" },
-  { icon: ShoppingCart, label: "Orders", path: "/orders" },
-  { icon: Users, label: "Staff", path: "/staff" },
-  { icon: Store, label: "Stores", path: "/stores" },
-  { icon: Route, label: "Routes", path: "/routes" },
-  { icon: Settings, label: "Settings", path: "/settings" },
+  { icon: LayoutDashboard, label: "ダッシュボード", path: "/" },
+  { icon: ShoppingCart, label: "注文", path: "/orders" },
+  { icon: Users, label: "スタッフ", path: "/staff" },
+  { icon: Store, label: "店舗", path: "/stores" },
+  { icon: Route, label: "ルート", path: "/routes" },
+  { icon: Settings, label: "設定", path: "/settings" },
 ];
 
 export function Sidebar() {
@@ -33,7 +33,7 @@ export function Sidebar() {
         collapsed ? "w-16" : "w-64"
       )}
     >
-      {/* Logo */}
+      {/* ロゴ */}
       <div className="flex h-16 items-center justify-between px-4 border-b border-sidebar-border">
         <div className={cn("flex items-center gap-3", collapsed && "justify-center w-full")}>
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
@@ -41,7 +41,7 @@ export function Sidebar() {
           </div>
           {!collapsed && (
             <span className="font-semibold text-sidebar-foreground">
-              ProcureFlow
+              買付フロー
             </span>
           )}
         </div>
@@ -55,7 +55,7 @@ export function Sidebar() {
         )}
       </div>
 
-      {/* Navigation */}
+      {/* ナビゲーション */}
       <nav className="flex flex-col gap-1 p-3">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
@@ -77,7 +77,7 @@ export function Sidebar() {
         })}
       </nav>
 
-      {/* Expand button */}
+      {/* 展開ボタン */}
       {collapsed && (
         <button
           onClick={() => setCollapsed(false)}

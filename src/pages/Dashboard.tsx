@@ -9,73 +9,73 @@ import { QuickActions } from "@/components/dashboard/QuickActions";
 export default function Dashboard() {
   return (
     <MainLayout
-      title="Dashboard"
-      subtitle="December 17, 2024 — Daily procurement overview"
+      title="ダッシュボード"
+      subtitle="2024年12月17日 — 本日の買付概要"
     >
-      {/* Stats Row */}
+      {/* 統計行 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <StatCard
-          title="Total Orders"
+          title="本日の注文数"
           value={147}
-          subtitle="Today"
+          subtitle="本日"
           icon={ShoppingCart}
           trend={{ value: 12, positive: true }}
           variant="primary"
         />
         <StatCard
-          title="Stores to Visit"
+          title="訪問予定店舗"
           value={38}
-          subtitle="Across 5 districts"
+          subtitle="5エリアにまたがる"
           icon={Store}
           variant="default"
         />
         <StatCard
-          title="Active Staff"
+          title="稼働中スタッフ"
           value={5}
-          subtitle="of 6 assigned"
+          subtitle="6名中"
           icon={Users}
           variant="default"
         />
         <StatCard
-          title="Completed"
+          title="完了率"
           value="68%"
-          subtitle="101 of 147 items"
+          subtitle="147件中101件"
           icon={CheckCircle}
           trend={{ value: 5, positive: true }}
           variant="success"
         />
       </div>
 
-      {/* Status Summary */}
+      {/* ステータス概要 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <StatCard
-          title="Pending Assignment"
+          title="割当待ち"
           value={23}
           icon={Clock}
           variant="warning"
         />
         <StatCard
-          title="In Progress"
+          title="処理中"
           value={46}
           icon={ShoppingCart}
           variant="primary"
         />
         <StatCard
-          title="Failed / Issues"
+          title="失敗/問題あり"
           value={8}
           icon={XCircle}
           variant="destructive"
         />
       </div>
 
-      {/* Main Content Grid */}
+      {/* メインコンテンツグリッド */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Orders Table - 2 columns */}
+        {/* 注文テーブル - 2列 */}
         <div className="lg:col-span-2">
           <OrdersTable />
         </div>
 
-        {/* Sidebar - 1 column */}
+        {/* サイドバー - 1列 */}
         <div className="space-y-6">
           <CutoffTimer />
           <QuickActions />

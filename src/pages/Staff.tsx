@@ -23,143 +23,143 @@ interface StaffMember {
 const mockStaff: StaffMember[] = [
   {
     id: "1",
-    name: "Tanaka Hiroshi",
+    name: "田中 宏",
     email: "tanaka@company.com",
     phone: "090-1234-5678",
-    avatar: "T",
+    avatar: "田",
     role: "buyer",
     assignedOrders: 12,
     assignedStores: 4,
     completedToday: 8,
     status: "en-route",
-    startLocation: "Office (Roppongi)",
-    currentLocation: "Shibuya District",
+    startLocation: "オフィス（六本木）",
+    currentLocation: "渋谷エリア",
   },
   {
     id: "2",
-    name: "Suzuki Yuki",
+    name: "鈴木 由紀",
     email: "suzuki@company.com",
     phone: "090-2345-6789",
-    avatar: "S",
+    avatar: "鈴",
     role: "buyer",
     assignedOrders: 8,
     assignedStores: 3,
     completedToday: 5,
     status: "active",
-    startLocation: "Office (Roppongi)",
-    currentLocation: "Shinjuku Station",
+    startLocation: "オフィス（六本木）",
+    currentLocation: "新宿駅周辺",
   },
   {
     id: "3",
-    name: "Yamamoto Ken",
+    name: "山本 健",
     email: "yamamoto@company.com",
     phone: "090-3456-7890",
-    avatar: "Y",
+    avatar: "山",
     role: "supervisor",
     assignedOrders: 15,
     assignedStores: 5,
     completedToday: 10,
     status: "en-route",
-    startLocation: "Home (Ikebukuro)",
-    currentLocation: "Ginza Area",
+    startLocation: "自宅（池袋）",
+    currentLocation: "銀座エリア",
   },
   {
     id: "4",
-    name: "Watanabe Mei",
+    name: "渡辺 芽衣",
     email: "watanabe@company.com",
     phone: "090-4567-8901",
-    avatar: "W",
+    avatar: "渡",
     role: "buyer",
     assignedOrders: 6,
     assignedStores: 2,
     completedToday: 6,
     status: "idle",
-    startLocation: "Office (Roppongi)",
+    startLocation: "オフィス（六本木）",
   },
   {
     id: "5",
-    name: "Ito Takeshi",
+    name: "伊藤 猛",
     email: "ito@company.com",
     phone: "090-5678-9012",
-    avatar: "I",
+    avatar: "伊",
     role: "buyer",
     assignedOrders: 10,
     assignedStores: 4,
     completedToday: 7,
     status: "active",
-    startLocation: "Office (Roppongi)",
-    currentLocation: "Akihabara",
+    startLocation: "オフィス（六本木）",
+    currentLocation: "秋葉原",
   },
   {
     id: "6",
-    name: "Sato Kenji",
+    name: "佐藤 健二",
     email: "sato@company.com",
     phone: "090-6789-0123",
-    avatar: "SK",
+    avatar: "佐",
     role: "buyer",
     assignedOrders: 0,
     assignedStores: 0,
     completedToday: 0,
     status: "off-duty",
-    startLocation: "Office (Roppongi)",
+    startLocation: "オフィス（六本木）",
   },
 ];
 
 const statusConfig = {
-  active: { label: "Active", color: "bg-success", textColor: "text-success" },
-  "en-route": { label: "En Route", color: "bg-primary", textColor: "text-primary" },
-  idle: { label: "Idle", color: "bg-warning", textColor: "text-warning" },
-  "off-duty": { label: "Off Duty", color: "bg-muted-foreground", textColor: "text-muted-foreground" },
+  active: { label: "稼働中", color: "bg-success", textColor: "text-success" },
+  "en-route": { label: "移動中", color: "bg-primary", textColor: "text-primary" },
+  idle: { label: "待機中", color: "bg-warning", textColor: "text-warning" },
+  "off-duty": { label: "休み", color: "bg-muted-foreground", textColor: "text-muted-foreground" },
 };
 
 const roleConfig = {
-  buyer: { label: "Buyer", className: "bg-secondary text-secondary-foreground" },
-  supervisor: { label: "Supervisor", className: "bg-primary/20 text-primary" },
-  admin: { label: "Admin", className: "bg-accent/20 text-accent" },
+  buyer: { label: "バイヤー", className: "bg-secondary text-secondary-foreground" },
+  supervisor: { label: "スーパーバイザー", className: "bg-primary/20 text-primary" },
+  admin: { label: "管理者", className: "bg-accent/20 text-accent" },
 };
 
 export default function Staff() {
   return (
-    <MainLayout title="Staff Management" subtitle="Manage buyers and view assignments">
-      {/* Stats Row */}
+    <MainLayout title="スタッフ管理" subtitle="バイヤーの管理と割当状況">
+      {/* 統計行 */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
         <div className="rounded-xl border border-border bg-card p-4 card-shadow">
-          <p className="text-sm text-muted-foreground">Total Staff</p>
+          <p className="text-sm text-muted-foreground">スタッフ総数</p>
           <p className="text-2xl font-bold text-foreground">{mockStaff.length}</p>
         </div>
         <div className="rounded-xl border border-success/20 bg-success/10 p-4">
-          <p className="text-sm text-muted-foreground">Active Today</p>
+          <p className="text-sm text-muted-foreground">本日稼働</p>
           <p className="text-2xl font-bold text-success">
             {mockStaff.filter((s) => s.status !== "off-duty").length}
           </p>
         </div>
         <div className="rounded-xl border border-primary/20 bg-primary/10 p-4">
-          <p className="text-sm text-muted-foreground">En Route</p>
+          <p className="text-sm text-muted-foreground">移動中</p>
           <p className="text-2xl font-bold text-primary">
             {mockStaff.filter((s) => s.status === "en-route").length}
           </p>
         </div>
         <div className="rounded-xl border border-border bg-card p-4 card-shadow">
-          <p className="text-sm text-muted-foreground">Completed Orders</p>
+          <p className="text-sm text-muted-foreground">完了注文数</p>
           <p className="text-2xl font-bold text-foreground">
             {mockStaff.reduce((acc, s) => acc + s.completedToday, 0)}
           </p>
         </div>
       </div>
 
-      {/* Actions */}
+      {/* アクション */}
       <div className="flex gap-3 mb-6">
         <Button className="gap-2">
           <UserPlus className="h-4 w-4" />
-          Add Staff
+          スタッフ追加
         </Button>
         <Button variant="secondary" className="gap-2">
           <RouteIcon className="h-4 w-4" />
-          Auto-Assign All
+          全員自動割当
         </Button>
       </div>
 
-      {/* Staff Grid */}
+      {/* スタッフグリッド */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {mockStaff.map((staff, index) => (
           <div
@@ -167,7 +167,7 @@ export default function Staff() {
             className="rounded-xl border border-border bg-card p-5 card-shadow hover:elevated-shadow transition-all duration-200 animate-slide-up"
             style={{ animationDelay: `${index * 50}ms` }}
           >
-            {/* Header */}
+            {/* ヘッダー */}
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="relative">
@@ -193,7 +193,7 @@ export default function Staff() {
               </Button>
             </div>
 
-            {/* Status */}
+            {/* ステータス */}
             <div className="flex items-center gap-2 mb-4">
               <span
                 className={cn(
@@ -214,31 +214,31 @@ export default function Staff() {
               )}
             </div>
 
-            {/* Stats */}
+            {/* 統計 */}
             <div className="grid grid-cols-3 gap-3 mb-4">
               <div className="text-center p-2 rounded-lg bg-muted/30">
                 <p className="text-lg font-bold text-foreground">{staff.assignedOrders}</p>
-                <p className="text-xs text-muted-foreground">Orders</p>
+                <p className="text-xs text-muted-foreground">注文</p>
               </div>
               <div className="text-center p-2 rounded-lg bg-muted/30">
                 <p className="text-lg font-bold text-foreground">{staff.assignedStores}</p>
-                <p className="text-xs text-muted-foreground">Stores</p>
+                <p className="text-xs text-muted-foreground">店舗</p>
               </div>
               <div className="text-center p-2 rounded-lg bg-success/10">
                 <p className="text-lg font-bold text-success">{staff.completedToday}</p>
-                <p className="text-xs text-muted-foreground">Done</p>
+                <p className="text-xs text-muted-foreground">完了</p>
               </div>
             </div>
 
-            {/* Actions */}
+            {/* アクション */}
             <div className="flex gap-2">
               <Button variant="outline" size="sm" className="flex-1 gap-1">
                 <Package className="h-3 w-3" />
-                Assign
+                割当
               </Button>
               <Button variant="outline" size="sm" className="flex-1 gap-1">
                 <RouteIcon className="h-3 w-3" />
-                Route
+                ルート
               </Button>
             </div>
           </div>
