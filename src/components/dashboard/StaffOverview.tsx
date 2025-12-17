@@ -14,63 +14,63 @@ interface StaffMember {
 const mockStaff: StaffMember[] = [
   {
     id: "1",
-    name: "Tanaka",
-    avatar: "T",
+    name: "田中",
+    avatar: "田",
     assignedOrders: 12,
     assignedStores: 4,
     status: "en-route",
-    currentLocation: "Shibuya District",
+    currentLocation: "渋谷エリア",
   },
   {
     id: "2",
-    name: "Suzuki",
-    avatar: "S",
+    name: "鈴木",
+    avatar: "鈴",
     assignedOrders: 8,
     assignedStores: 3,
     status: "active",
-    currentLocation: "Shinjuku Station",
+    currentLocation: "新宿駅周辺",
   },
   {
     id: "3",
-    name: "Yamamoto",
-    avatar: "Y",
+    name: "山本",
+    avatar: "山",
     assignedOrders: 15,
     assignedStores: 5,
     status: "en-route",
-    currentLocation: "Ginza Area",
+    currentLocation: "銀座エリア",
   },
   {
     id: "4",
-    name: "Watanabe",
-    avatar: "W",
+    name: "渡辺",
+    avatar: "渡",
     assignedOrders: 6,
     assignedStores: 2,
     status: "idle",
   },
   {
     id: "5",
-    name: "Ito",
-    avatar: "I",
+    name: "伊藤",
+    avatar: "伊",
     assignedOrders: 10,
     assignedStores: 4,
     status: "active",
-    currentLocation: "Akihabara",
+    currentLocation: "秋葉原",
   },
 ];
 
 const statusConfig = {
-  active: { label: "Active", color: "bg-success" },
-  "en-route": { label: "En Route", color: "bg-primary" },
-  idle: { label: "Idle", color: "bg-muted-foreground" },
+  active: { label: "稼働中", color: "bg-success" },
+  "en-route": { label: "移動中", color: "bg-primary" },
+  idle: { label: "待機中", color: "bg-muted-foreground" },
 };
 
 export function StaffOverview() {
   return (
     <div className="rounded-xl border border-border bg-card card-shadow">
       <div className="border-b border-border px-6 py-4">
-        <h3 className="text-lg font-semibold text-foreground">Staff Status</h3>
+        <h3 className="text-lg font-semibold text-foreground">スタッフ状況</h3>
         <p className="text-sm text-muted-foreground">
-          {mockStaff.filter((s) => s.status !== "idle").length} active today
+          本日稼働: {mockStaff.filter((s) => s.status !== "idle").length}名
         </p>
       </div>
       <div className="divide-y divide-border">
@@ -80,7 +80,7 @@ export function StaffOverview() {
             className="flex items-center gap-4 px-6 py-4 hover:bg-muted/20 transition-colors animate-fade-in"
             style={{ animationDelay: `${index * 50}ms` }}
           >
-            {/* Avatar */}
+            {/* アバター */}
             <div className="relative">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
                 {staff.avatar}
@@ -93,7 +93,7 @@ export function StaffOverview() {
               />
             </div>
 
-            {/* Info */}
+            {/* 情報 */}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
                 <p className="text-sm font-medium text-foreground">
@@ -113,7 +113,7 @@ export function StaffOverview() {
               )}
             </div>
 
-            {/* Stats */}
+            {/* 統計 */}
             <div className="flex items-center gap-4 text-sm">
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <Package className="h-4 w-4" />

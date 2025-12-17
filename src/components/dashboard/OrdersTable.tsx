@@ -16,69 +16,69 @@ const mockOrders: Order[] = [
   {
     id: "ORD-001",
     sku: "SKU-12345",
-    productName: "Premium Wireless Headphones",
+    productName: "プレミアムワイヤレスヘッドホン",
     quantity: 2,
-    store: "Electronics Plaza",
-    assignedTo: "Tanaka",
+    store: "家電プラザ",
+    assignedTo: "田中",
     status: "assigned",
     orderDate: "2024-01-15",
   },
   {
     id: "ORD-002",
     sku: "SKU-67890",
-    productName: "Organic Green Tea Set",
+    productName: "有機抹茶セット",
     quantity: 5,
-    store: "Gourmet Market",
-    assignedTo: "Suzuki",
+    store: "グルメマーケット",
+    assignedTo: "鈴木",
     status: "pending",
     orderDate: "2024-01-15",
   },
   {
     id: "ORD-003",
     sku: "SKU-11111",
-    productName: "Portable Charger 20000mAh",
+    productName: "モバイルバッテリー 20000mAh",
     quantity: 3,
-    store: "Tech Hub",
-    assignedTo: "Yamamoto",
+    store: "テックハブ",
+    assignedTo: "山本",
     status: "purchased",
     orderDate: "2024-01-15",
   },
   {
     id: "ORD-004",
     sku: "SKU-22222",
-    productName: "Artisan Coffee Beans 1kg",
+    productName: "スペシャルティコーヒー豆 1kg",
     quantity: 4,
-    store: "Specialty Foods",
-    assignedTo: "Watanabe",
+    store: "特選食品店",
+    assignedTo: "渡辺",
     status: "failed",
     orderDate: "2024-01-15",
   },
   {
     id: "ORD-005",
     sku: "SKU-33333",
-    productName: "Bamboo Desk Organizer",
+    productName: "竹製デスクオーガナイザー",
     quantity: 1,
-    store: "Home Goods Plus",
-    assignedTo: "Ito",
+    store: "ホームグッズプラス",
+    assignedTo: "伊藤",
     status: "assigned",
     orderDate: "2024-01-15",
   },
 ];
 
 const statusConfig = {
-  pending: { label: "Pending", className: "bg-muted text-muted-foreground" },
-  assigned: { label: "Assigned", className: "bg-primary/20 text-primary" },
-  purchased: { label: "Purchased", className: "bg-success/20 text-success" },
-  failed: { label: "Failed", className: "bg-destructive/20 text-destructive" },
+  pending: { label: "待機中", className: "bg-muted text-muted-foreground" },
+  assigned: { label: "割当済", className: "bg-primary/20 text-primary" },
+  purchased: { label: "購入済", className: "bg-success/20 text-success" },
+  failed: { label: "失敗", className: "bg-destructive/20 text-destructive" },
 };
 
 export function OrdersTable() {
   return (
     <div className="rounded-xl border border-border bg-card card-shadow overflow-hidden">
       <div className="border-b border-border px-6 py-4">
-        <h3 className="text-lg font-semibold text-foreground">Today's Orders</h3>
+        <h3 className="text-lg font-semibold text-foreground">本日の注文</h3>
         <p className="text-sm text-muted-foreground">
-          {mockOrders.length} orders to process
+          処理対象: {mockOrders.length}件
         </p>
       </div>
       <div className="overflow-x-auto">
@@ -86,22 +86,22 @@ export function OrdersTable() {
           <thead>
             <tr className="border-b border-border bg-muted/30">
               <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Order ID
+                注文ID
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Product
+                商品名
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Qty
+                数量
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Store
+                店舗
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Staff
+                担当者
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Status
+                ステータス
               </th>
             </tr>
           </thead>

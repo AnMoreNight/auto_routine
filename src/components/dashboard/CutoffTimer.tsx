@@ -16,7 +16,7 @@ export function CutoffTimer() {
       const cutoff = new Date();
       cutoff.setHours(13, 10, 0, 0);
 
-      // If cutoff has passed, show time until next day's cutoff
+      // 締切時間を過ぎた場合、翌日の締切時間までの時間を表示
       if (now > cutoff) {
         cutoff.setDate(cutoff.getDate() + 1);
       }
@@ -56,17 +56,17 @@ export function CutoffTimer() {
           <Clock className="h-5 w-5 text-primary" />
         )}
         <span className="text-sm font-medium text-muted-foreground">
-          Daily Cutoff (13:10)
+          本日締切 (13:10)
         </span>
       </div>
 
       {timeRemaining.isPast ? (
         <div className="space-y-1">
           <p className="text-lg font-semibold text-muted-foreground">
-            Cutoff Passed
+            締切時間を過ぎました
           </p>
           <p className="text-sm text-muted-foreground">
-            New orders go to tomorrow's list
+            新規注文は翌営業日のリストに追加されます
           </p>
         </div>
       ) : (

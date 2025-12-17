@@ -60,7 +60,7 @@ export function StatCard({
             >
               <span>{trend.positive ? "↑" : "↓"}</span>
               <span>{Math.abs(trend.value)}%</span>
-              <span className="text-muted-foreground font-normal">vs yesterday</span>
+              <span className="text-muted-foreground font-normal">前日比</span>
             </div>
           )}
         </div>
